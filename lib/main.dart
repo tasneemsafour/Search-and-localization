@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:localization_project/home.dart';
+import 'package:localization_project/search.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,6 +38,9 @@ class CarouselDemoState extends State<MyApp> {
         accentColor: Colors.amber[700]
       ),
       debugShowCheckedModeBanner: false,
+    routes: <String, WidgetBuilder>{
+      HomePage.routeName: (ctx) => HomePage(),
+    }
     );
   }
 }

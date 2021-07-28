@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:localization_project/search.dart';
+
 
 class Home extends StatefulWidget {
   //const Home({Key? key}) : super(key: key);
@@ -9,15 +11,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  static String routName = 'HomeScreen';
+  //static String routName = 'HomeScreen';
   late CarouselSlider carouselSlider;
   int _current = 0;
-  List imgList = [
-    'https://images.unsplash.com/photo-1502117859338-fd9daa518a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1554321586-92083ba0a115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1536679545597-c2e5e1946495?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1543922596-b3bbaba80649?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1502943693086-33b5b1cfdf2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
+  List<Map<String,String>> imgList = [
+    {"Url":'https://www.searchenginewatch.com/wp-content/uploads/2018/10/evolution-of-search-2.jpg',"route":"HomePage" },
+    {"Url":'https://images.unsplash.com/photo-1554321586-92083ba0a115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',"route":" "},
+    {"Url":'https://images.unsplash.com/photo-1536679545597-c2e5e1946495?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',"route":"HomePade" },
+    {"Url":"https://images.unsplash.com/photo-1502943693086-33b5b1cfdf2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80","route":"HomePade" },
+
   ];
 
   List<T> map<T>(List list, Function handler) {
@@ -74,9 +76,14 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                           color: Colors.green,
                         ),
-                        child: Image.network(
-                          imgUrl,
+                        child:InkWell(
+                          onTap:(){
+                            Navigator.of(context).pushNamed( imgUrl.values.last
+                          );},
+                          child: Image.network(
+                          imgUrl.values.first,
                           fit: BoxFit.fill,
+                        ),
                         ),
                       );
                   },
